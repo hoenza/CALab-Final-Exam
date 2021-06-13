@@ -48,7 +48,7 @@ module Main(rst, clk);
    .WB_EN(WB_EN_ID_OUT), .exeCMD(exeCMD_ID_OUT), .res1(res1_ID_OUT), .res2(res2_ID_OUT), .PC(PC_ID_OUT),
    .signedImm24(SignedImm24_ID_OUT), .Dest(Dest_ID_OUT), .isImmidiate(isImmidiate_ID_OUT), .shiftOperand(shiftOperand_ID_OUT), .two_src(two_src), .src1(src1), .src2(src2));
 
-  IDStageReg iDStageReg(.rst(rst), .clk(clk), .flush(flush), .S_UpdateSigIn(S_UpdateSig_ID_OUT), .branchIn(branch_ID_OUT),
+  IDStageReg iDStageReg(.rst(rst), .clk(clk), .freeze(1'b0), .flush(flush), .S_UpdateSigIn(S_UpdateSig_ID_OUT), .branchIn(branch_ID_OUT),
     .memWriteEnIn(memWriteEn_ID_OUT), .memReadEnIn(memReadEn_ID_OUT), .WB_EN_IN(WB_EN_ID_OUT), .exeCMDIn(exeCMD_ID_OUT),
     .res1In(res1_ID_OUT), .res2In(res2_ID_OUT), .PCIn(PC_ID_OUT), .signedImm24In(SignedImm24_ID_OUT), .DestIn(Dest_ID_OUT),
     .isImmidiateIn(isImmidiate_ID_OUT), .shiftOperandIn(shiftOperand_ID_OUT), .carryIn(status_EXE_OUT[1]), .S_UpdateSig(S_UpdateSig_ID_R_OUT),
